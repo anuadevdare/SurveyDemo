@@ -14,9 +14,9 @@ public class SurveyReponseServiceImpl implements SurveyReponseService {
 	SurveyResponseDao surveyResponseDao;
 
 	@Override
-	public SurveyResponseDto persistSurvey(SurveyResponseDto persistSurvey) {
-		
-		return surveyResponseDao.persistSurvey(persistSurvey);
+	public void saveSurveyResponse(SurveyResponseDto persistSurvey) {
+
+		surveyResponseDao.saveSurveyResponse(persistSurvey);
 
 	}
 

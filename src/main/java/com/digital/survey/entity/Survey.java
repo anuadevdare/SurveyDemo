@@ -16,7 +16,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
+/**
+ * Entity class for Survey
+ * 
+ * @author Anita Devdare
+ * @since 1.0
+ */
 @Entity
 @Table(name = "SURVEY_MASTER")
 public class Survey implements Serializable {

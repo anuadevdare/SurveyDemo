@@ -2,14 +2,20 @@ package com.digital.survey.dto;
 
 import java.util.Set;
 
-public class SurveyQuestionsDto {
+/**
+ * DTO class for survey_answers table.creating multiple record as per selected
+ * possible answers
+ */
+public class SurveyAnswersDto {
 	private long surveyQustionId;
 
 	private long questionId;
-
+	/**
+	 * Question has multiple possible answers
+	 */
 	private Set<Long> answerList;
 
-	public SurveyQuestionsDto() {
+	public SurveyAnswersDto() {
 		super();
 	}
 
@@ -18,7 +24,7 @@ public class SurveyQuestionsDto {
 	 * @param questionId
 	 * @param answerList
 	 */
-	public SurveyQuestionsDto(long surveyQustionId, long questionId, Set<Long> answerList) {
+	public SurveyAnswersDto(long surveyQustionId, long questionId, Set<Long> answerList) {
 		super();
 		this.surveyQustionId = surveyQustionId;
 		this.questionId = questionId;
@@ -67,5 +73,4 @@ public class SurveyQuestionsDto {
 		this.answerList = answerList;
 	}
 
-	
 }

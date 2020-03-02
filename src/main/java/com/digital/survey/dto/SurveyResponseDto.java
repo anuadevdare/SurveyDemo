@@ -1,7 +1,9 @@
 package com.digital.survey.dto;
 
 import java.util.Set;
-
+/**
+ * DTO class for survey_response table
+ */
 public class SurveyResponseDto {
 
 	private long surveyResponseId;
@@ -9,8 +11,10 @@ public class SurveyResponseDto {
 	private long surveyId;
 
 	private long deviceId;
-
-	private Set<SurveyQuestionsDto> questionList;
+/**
+ * 
+ */
+	private Set<SurveyAnswersDto> questionList;
 
 	public SurveyResponseDto() {
 		super();
@@ -23,7 +27,7 @@ public class SurveyResponseDto {
 	 * @param questionList
 	 */
 	public SurveyResponseDto(long surveyResponseId, long surveyId, long deviceId,
-			Set<SurveyQuestionsDto> questionList) {
+			Set<SurveyAnswersDto> questionList) {
 		super();
 		this.surveyResponseId = surveyResponseId;
 		this.surveyId = surveyId;
@@ -76,14 +80,14 @@ public class SurveyResponseDto {
 	/**
 	 * @return the questionList
 	 */
-	public Set<SurveyQuestionsDto> getQuestionList() {
+	public Set<SurveyAnswersDto> getQuestionList() {
 		return questionList;
 	}
 
 	/**
 	 * @param questionList the questionList to set
 	 */
-	public void setQuestionList(Set<SurveyQuestionsDto> questionList) {
+	public void setQuestionList(Set<SurveyAnswersDto> questionList) {
 		this.questionList = questionList;
 	}
 

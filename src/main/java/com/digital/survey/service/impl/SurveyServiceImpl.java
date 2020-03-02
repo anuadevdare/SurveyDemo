@@ -31,9 +31,9 @@ public class SurveyServiceImpl implements SurveyService {
 	}
 
 	@Override
-	public SurveyDto getSurveyByClientId(long clientId) {
+	public SurveyDto getSurveyByActiveClientId(long clientId) {
 		// TODO Auto-generated method stub
-		return surveyDao.getSurveyByClientId(clientId);
+		return surveyDao.getSurveyByActiveClientId(clientId);
 	}
 
 }

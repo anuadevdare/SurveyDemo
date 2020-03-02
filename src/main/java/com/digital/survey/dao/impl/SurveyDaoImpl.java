@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.digital.survey.dao.DtoEntityConverter;
 import com.digital.survey.dao.SurveyDao;
-import com.digital.survey.dto.AnswerDto;
 import com.digital.survey.dto.QuestionDto;
 import com.digital.survey.dto.SurveyDto;
 import com.digital.survey.entity.Answer;
@@ -17,22 +16,27 @@ import com.digital.survey.entity.Question;
 import com.digital.survey.entity.Survey;
 import com.digital.survey.repository.SurveyRepository;
 
+/**
+ * The SurveyDaoImpl responsible to create the survey for multiple questions and their
+ * possible answers for the particular client.if client has existing survey
+ * then first updated existing survey status as inactive(false), and create the
+ * new survey with the active status(true).also find the active survey for
+ * the given client id.
+ *
+ */
 @Service
 public class SurveyDaoImpl implements SurveyDao, DtoEntityConverter<SurveyDto, Survey> {
 	@Autowired
 	SurveyRepository repo;
-	@Autowired
-	QuestionDaoImpl queDaoImpl;
-	@Autowired
-	AnswerDaoImpl ansDaoImpl;;
-	@Autowired
-	AnswerDto answerDto;
-
-	boolean status = true;
-
+	/**
+	 * used to convert SurveyDto to Survey
+	 * @param SurveyDto the DTO object
+	 * @param Survey the entity object
+	 * 
+	 */
 	@Override
 	public void dtoToEntityConvert(SurveyDto dto, Survey entity) {
-
+		QuestionDaoImpl queDaoImpl = new QuestionDaoImpl();
 		entity.setClientId(dto.getClientId());
 		entity.setSurveyId(dto.getSurveyId());
 		entity.setSurveyTitle(dto.getSurveyTitle());
@@ -47,10 +51,15 @@ public class SurveyDaoImpl implements SurveyDao, DtoEntityConverter<SurveyDto, S
 		entity.setQuestionList(question);
 
 	}
-
+	/**
+	 * used to convert Survey to SurveyDto
+	 * @param SurveyDto the DTO object
+	 * @param Survey the entity object
+	 * 
+	 */
 	@Override
 	public void entityToDtoConvert(SurveyDto dto, Survey entity) {
-
+		QuestionDaoImpl queDaoImpl = new QuestionDaoImpl();
 		dto.setSurveyId(entity.getSurveyId());
 		dto.setSurveyTitle(entity.getSurveyTitle());
 		dto.setClientId(entity.getClientId());
@@ -102,7 +111,7 @@ public class SurveyDaoImpl implements SurveyDao, DtoEntityConverter<SurveyDto, S
 	 * @return survey the latest survey
 	 */
 	@Override
-	public SurveyDto getSurveyByClientId(long clientId) {
+	public SurveyDto getSurveyByActiveClientId(long clientId) {
 		Survey survey = repo.findByclientIdActiveStatus(clientId, true);
 		SurveyDto surveyDto = new SurveyDto();
 		entityToDtoConvert(surveyDto, survey);

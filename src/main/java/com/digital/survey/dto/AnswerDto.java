@@ -5,6 +5,11 @@ import org.springframework.stereotype.Component;
 import com.digital.survey.entity.Question;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * 
+ * DTO class for answer_master table
+ *
+ */
 @Component
 public class AnswerDto {
 

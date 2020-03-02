@@ -3,15 +3,18 @@ package com.digital.survey.dto;
 import java.util.Set;
 
 import org.springframework.stereotype.Component;
-@Component
+
+/**
+ * DTO class for question_master table
+ */
 public class QuestionDto {
-	
+
 	private long questionId;
-	
+
 	private String questionText;
 
 	private String type;
-	
+
 	private Set<AnswerDto> answerList;
 
 	public QuestionDto() {
@@ -32,7 +35,6 @@ public class QuestionDto {
 		this.answerList = answerList;
 	}
 
-	
 	/**
 	 * @return the questionId
 	 */
@@ -94,7 +96,5 @@ public class QuestionDto {
 		return "QuestionDto [questionId=" + questionId + ", questionText=" + questionText + ", type=" + type
 				+ ", answerList=" + answerList + "]";
 	}
-
-	
 
 }

@@ -3,21 +3,30 @@ package com.digital.survey.dao.impl;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.springframework.stereotype.Component;
-
 import com.digital.survey.dao.DtoEntityConverter;
 import com.digital.survey.dto.AnswerDto;
 import com.digital.survey.dto.QuestionDto;
 import com.digital.survey.entity.Answer;
 import com.digital.survey.entity.Question;
 
-@Component
+/**
+ * The QuestionDaoImpl class is responsible for converting QuestionDto to
+ * Question and vice versa.
+ */
+
 public class QuestionDaoImpl implements DtoEntityConverter<QuestionDto, Question> {
 	AnswerDaoImpl dao = new AnswerDaoImpl();
 
+	/**
+	 * used to convert QuestionDto to Question
+	 * 
+	 * @param QuestionDto the DTO object
+	 * @param Question    the entity object
+	 * 
+	 */
 	@Override
 	public void dtoToEntityConvert(QuestionDto dto, Question entity) {
-	
+
 		entity.setQuestionId(dto.getQuestionId());
 		entity.setQuestionText(dto.getQuestionText());
 		entity.setType(dto.getType());
@@ -29,6 +38,13 @@ public class QuestionDaoImpl implements DtoEntityConverter<QuestionDto, Question
 		}
 		entity.setAnswerList(answers);
 	}
+	/**
+	 * used to convert Question to QuestionDto
+	 * 
+	 * @param QuestionDto the DTO object
+	 * @param Question    the entity object
+	 * 
+	 */
 
 	@Override
 	public void entityToDtoConvert(QuestionDto dto, Question entity) {

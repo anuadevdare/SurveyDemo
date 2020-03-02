@@ -16,7 +16,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+/**
+ * Entity class for saving survey answers
+ * 
+ * @author Anita Devdare
+ * @since 1.0
+ */
 @Entity
 @Table(name = "SURVEY_ANSWERS")
 public class SurveyAnswers implements Serializable {
@@ -54,6 +59,7 @@ public class SurveyAnswers implements Serializable {
 		this.questionId = questionId;
 		this.answerId = answerId;
 	}
+	
 
 	/**
 	 * @return the surveyQustionId

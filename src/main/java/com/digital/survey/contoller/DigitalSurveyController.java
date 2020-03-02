@@ -32,23 +32,28 @@ public class DigitalSurveyController {
 	 * create survey API for the client and deactivate the last survey
 	 * 
 	 */
-	@PostMapping(path = "/savesurvey", consumes = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(path = "/createsurvey", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public SurveyDto createSurvey(@Valid @RequestBody SurveyDto survey) {
 		return surveyService.createSurvey(survey);
 
 	}
 
 	/**
-	 * get survey API for the fetch the latest survey for the client
+	 * The API responsible for the fetch the latest survey for the given client
 	 */
 	@GetMapping(path = "/getsurvey/{clientId}")
 	public SurveyDto getSurveyByClientId(@PathVariable long clientId) {
 
-		return surveyService.getSurveyByClientId(clientId);
+		return surveyService.getSurveyByActiveClientId(clientId);
 	}
-	@PostMapping(path = "/savesurveyanswrs", consumes = MediaType.APPLICATION_JSON_VALUE)
-	public SurveyResponseDto persistSurvey(@Valid @RequestBody SurveyResponseDto surveyAnswers) {
-		return persistSurveyService.persistSurvey(surveyAnswers);
+
+	/**
+	 * The API is responsible to save the survey response for multiple questions and
+	 * their selected possible answers for the given device id.
+	 */
+	@PostMapping(path = "/savesurveyanswers", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public void saveSurveyResponse(@Valid @RequestBody SurveyResponseDto surveyAnswers) {
+		persistSurveyService.saveSurveyResponse(surveyAnswers);
 
 	}
 }

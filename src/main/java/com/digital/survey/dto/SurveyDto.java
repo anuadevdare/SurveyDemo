@@ -1,5 +1,7 @@
 package com.digital.survey.dto;
-
+/**
+ * DTO class for survey_master table
+ */
 import java.util.Set;
 
 public class SurveyDto {
