@@ -62,7 +62,7 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-		 <dependencies>
+		
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -75,7 +75,7 @@
             <version>${junit.platform.version}</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>
+ 
 		 <dependency>
             <groupId>com.github.seratch</groupId>
             <artifactId>java-time-backport</artifactId>
@@ -118,6 +118,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
