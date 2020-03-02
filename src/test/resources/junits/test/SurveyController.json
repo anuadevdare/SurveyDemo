@@ -1,0 +1,65 @@
+[
+	{
+		"expectedStatus": 200,
+		"expectedResponseBody": [{
+    "surveyId": 26,
+    "surveyTitle": "Demo Survey two",
+    "clientId": 1,
+    "questionList": [
+        {
+            "questionId": 25,
+            "questionText": "How satisfied are you with your overall experience with toner cartridges ?",
+            "type": "redio",
+            "answerList": [
+                {
+                    "answerId": 49,
+                    "answerText": "Very satisfied"
+                },
+                {
+                    "answerId": 45,
+                    "answerText": "dissatisfied"
+                },
+                {
+                    "answerId": 47,
+                    "answerText": "Satisfied"
+                },
+                {
+                    "answerId": 48,
+                    "answerText": "Somewhat dissatisfied"
+                },
+                {
+                    "answerId": 46,
+                    "answerText": "Completely satisfied"
+                }
+            ]
+        },
+        {
+            "questionId": 24,
+            "questionText": "Which of the following TYPES of cartridges or refills were purchased in the last six months for your printer3 ?",
+            "type": "check",
+            "answerList": [
+                {
+                    "answerId": 42,
+                    "answerText": "Private label non-HP cartridge (includes refurbished/refilled cartridges3)"
+                },
+                {
+                    "answerId": 43,
+                    "answerText": "New HP branded cartridges3"
+                },
+                {
+                    "answerId": 41,
+                    "answerText": "None of the above3"
+                },
+                {
+                    "answerId": 44,
+                    "answerText": "Store-branded non-HP cartridges3"
+                }
+            ]
+        }
+    ]
+}],
+		"requestMethod": "GET",
+		"requestEndpoint": "getsurvey/1",
+		"contentType": "application/json"
+	}
+]
